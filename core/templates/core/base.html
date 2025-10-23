@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Portafolio - Nicolás Lintz{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        body {
+            background-color: #0f0f1a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        aside {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .aside-hidden {
+            transform: translateX(-100%);
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        #sidebar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col md:flex-row min-h-screen bg-[#0f0f1a]">
+
+    <!-- BOTÓN MENU MOVIL -->
+    <button id="menu-toggle"
+        class="fixed top-4 left-4 z-50 md:hidden bg-purple-700 text-white p-2 rounded focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!-- ASIDE -->
+    <aside id="sidebar"
+        class="w-64 bg-[#0f0f1a] p-8 z-40 transform md:transform-none aside-hidden md:block border-r border-gray-800">
+        <nav class="flex flex-col gap-6 text-lg">
+            <a href="{% url 'home' %}#home" class="hover:text-purple-400 transition-all">Inicio</a>
+            <a href="{% url 'home' %}#about" class="hover:text-purple-400 transition-all">Sobre mí</a>
+            <a href="{% url 'home' %}#projects" class="hover:text-purple-400 transition-all">Proyectos</a>
+            <a href="{% url 'contact' %}" class="hover:text-purple-400 transition-all">Contacto</a>
+        </nav>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="main-content"
+        class="flex-1 p-6 md:ml-64 transition-all duration-500 bg-[#0f0f1a] min-h-screen"
+        data-aos="fade-up">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("aside-hidden");
+        });
+        document.addEventListener("click", (e) => {
+            if (!sidebar.contains(e.target) && !toggle.contains(e.target) && window.innerWidth < 768) {
+                sidebar.classList.add("aside-hidden");
+            }
+        });
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>
