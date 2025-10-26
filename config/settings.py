@@ -30,7 +30,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'core' / 'static']
 
 
-ALLOWED_HOSTS = ['lintz.cl', 'https://portafolio-5zqc.onrender.com']
+ALLOWED_HOSTS = [
+    'lintz.cl',
+    'www.lintz.cl',
+    'https://portafolio-82oj.onrender.com/',
+    'localhost',
+    '127.0.0.1',
+]
 
 # Media files
 MEDIA_URL = '/media/'
