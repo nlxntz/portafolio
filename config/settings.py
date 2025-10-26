@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
+
+print("HOST ENV:", os.environ.get("RENDER_EXTERNAL_HOSTNAME"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +36,6 @@ STATICFILES_DIRS = [BASE_DIR / 'core' / 'static']
 ALLOWED_HOSTS = [
     'lintz.cl',
     'www.lintz.cl',
-    'https://portafolio-82oj.onrender.com/',
     'localhost',
     '127.0.0.1',
 ]
