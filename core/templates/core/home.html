@@ -11,20 +11,20 @@
             <div class="w-full h-full bg-gradient-to-b from-[#1a013a] to-[#2c0b5f] animate-gradient-background"></div>
         </div>
 
-        <!-- Contenido Home -->
         <div class="max-w-3xl py-12 space-y-6 reveal">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-snug">
-                Hola, soy <span class="text-custom-purple">Nico Lintz</span>
+                Hola, soy <span class="text-custom-purple">Nicolás Lintz</span>
             </h1>
             <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
                 Soy un desarrollador apasionado por soluciones digitales en <span class="text-custom-purple font-semibold">Full Stack</span>, <span class="text-custom-purple font-semibold">Backend</span>, <span class="text-custom-purple font-semibold">Frontend</span> y <span class="text-custom-purple font-semibold">despliegue de aplicaciones</span>. 
                 Me apasiona crear experiencias web modernas, seguras y con interfaces atractivas, que funcionen en cualquier dispositivo.
             </p>
-
-            <a href="#projects" 
+            <div class="flex justify-center">
+                <a href="#projects" 
                 class="inline-block mt-6 bg-custom-purple text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4f46e5] transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-purple-600/50">
                 Ver mis proyectos 🚀
-            </a>
+                </a>
+            </div>
         </div>
 
         <!-- REDES SOCIALES HOME -->
@@ -162,82 +162,106 @@
 
     <!-- SECCIÓN PROYECTOS -->
     <section id="projects" class="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-24 py-16 bg-[#1a013a]">
-        <h2 class="text-4xl font-bold text-custom-purple mb-4">Mis Proyectos</h2>
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-custom-purple mb-4">Mis Proyectos</h2>
         <p class="text-gray-300 mb-12 text-center max-w-2xl">
             Colección de mis trabajos y experimentos en desarrollo web, backend y sistemas.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
             <!-- CARD 1 -->
-            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-custom-purple/30">
-                <h3 class="text-2xl font-semibold mb-2 text-custom-purple">Sistema de Lenguaje de Señas</h3>
-                <p class="text-gray-300 mb-4 text-sm">
-                    Proyecto de IA con FastAPI y CNN para traducir lenguaje de señas en tiempo real.
-                </p>
-                <a href="https://github.com/nlxntz/proyecto_lenguaje_senas" target="_blank"
-                class="inline-block px-4 py-2 bg-custom-purple text-white rounded-lg hover:bg-purple-700 transition-all duration-300">
-                Ver en GitHub
-                </a>
+            <div data-aos="zoom-in" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema de Lenguaje de Señas</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Proyecto de IA con FastAPI y CNN para traducir lenguaje de señas en tiempo real.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/proyecto_lenguaje_senas" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md hover:bg-purple-700 hover:shadow-purple-700/50 transition-all duration-300">
+                    Ver en GitHub
+                    </a>
+                </div>
             </div>
 
             <!-- CARD 2 -->
-            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-custom-purple/30">
-                <h3 class="text-2xl font-semibold mb-2 text-custom-purple">Sistema QR Restaurante</h3>
-                <p class="text-gray-300 mb-4 text-sm">
-                    Sistema web para gestión de pedidos mediante códigos QR, desarrollado con Django y Tailwind.
-                </p>
-                <a href="https://github.com/nlxntz/proyecto_qr" target="_blank"
-                class="inline-block px-4 py-2 bg-custom-purple text-white rounded-lg hover:bg-purple-700 transition-all duration-300">
-                Ver en GitHub
-                </a>
+            <div data-aos="zoom-in" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema QR Restaurante</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Sistema web para gestión de pedidos mediante códigos QR, desarrollado con Django y Tailwind.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/proyecto_qr" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md hover:bg-purple-700 hover:shadow-purple-700/50 transition-all duration-300">
+                    Ver en GitHub
+                    </a>
+                </div>
             </div>
 
             <!-- CARD 3 -->
-            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-custom-purple/30">
-                <h3 class="text-2xl font-semibold mb-2 text-custom-purple">Sistema de Predicción Médica</h3>
-                <p class="text-gray-300 mb-4 text-sm">
-                    Modelo de Machine Learning para predecir diabetes con visualizaciones interactivas.
-                </p>
-                <a href="https://github.com/nlxntz/Ev2_AIA" target="_blank"
-                class="inline-block px-4 py-2 bg-custom-purple text-white rounded-lg hover:bg-purple-700 transition-all duration-300">
-                Ver en GitHub
-                </a>
+            <div data-aos="zoom-in" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema de Predicción Médica</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Modelo de Machine Learning para predecir diabetes con visualizaciones interactivas.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/Ev2_AIA" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md hover:bg-purple-700 hover:shadow-purple-700/50 transition-all duration-300">
+                    Ver en GitHub
+                    </a>
+                </div>
             </div>
 
             <!-- CARD 4 -->
-            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-custom-purple/30">
-                <h3 class="text-2xl font-semibold mb-2 text-custom-purple">Juego de Snake con IA</h3>
-                <p class="text-gray-300 mb-4 text-sm">
-                    Proyecto de IA con el juego Snake para ver el comportamiento de la serpiente.
-                </p>
-                <a href="https://github.com/nlxntz/snake_ia" target="_blank"
-                class="inline-block px-4 py-2 bg-custom-purple text-white rounded-lg hover:bg-purple-700 transition-all duration-300">
-                Ver en GitHub
-                </a>
+            <div data-aos="zoom-in" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Juego de Snake con IA</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Proyecto de IA con el juego Snake para ver el comportamiento de la serpiente.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/snake_ia" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md hover:bg-purple-700 hover:shadow-purple-700/50 transition-all duration-300">
+                    Ver en GitHub
+                    </a>
+                </div>
             </div>
 
             <!-- CARD 5 -->
-            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-custom-purple/30">
-                <h3 class="text-2xl font-semibold mb-2 text-custom-purple">Portafolio Personal</h3>
-                <p class="text-gray-300 mb-4 text-sm">
-                    Mi sitio web profesional creado con Django, Tailwind y animaciones interactivas.
-                </p>
-                <a href="https://github.com/nlxntz/portafolio" target="_blank"
-                class="inline-block px-4 py-2 bg-custom-purple text-white rounded-lg hover:bg-purple-700 transition-all duration-300">
-                Ver en GitHub
-                </a>
+            <div data-aos="zoom-in" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Portafolio Personal</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Mi sitio web profesional creado con Django, Tailwind y animaciones interactivas.
+                    </p>
+                </div>
+                <div>
+                    <a href="https://github.com/nlxntz/portafolio" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md hover:bg-purple-700 hover:shadow-purple-700/50 transition-all duration-300">
+                    Ver en GitHub
+                    </a>
+                </div>
             </div>
 
             <!-- CARD 6 -->
-            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-custom-purple/30">
-                <h3 class="text-2xl font-semibold mb-2 text-custom-purple">Sistema para Portuaria Corral</h3>
-                <p class="text-gray-300 mb-4 text-sm">
-                    Sistema de inventario con alertas de stock y segurida, con predicción de productos.
-                </p>
-                <a href="https://github.com/nlxntz/portuaria-corral-inventario" target="_blank"
-                class="inline-block px-4 py-2 bg-custom-purple text-white rounded-lg hover:bg-purple-700 transition-all duration-300">
-                Ver en GitHub
-                </a>
+            <div data-aos="zoom-in" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema para Portuaria Corral</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Sistema de inventario con alertas de stock y segurida, con predicción de productos.
+                    </p>
+                </div>
+                <div>
+                    <a href="https://github.com/nlxntz/portuaria-corral-inventario" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md hover:bg-purple-700 hover:shadow-purple-700/50 transition-all duration-300">
+                    Ver en GitHub
+                    </a>
+                </div>
             </div>
         </div>
     </section>
