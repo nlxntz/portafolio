@@ -178,7 +178,7 @@
                 </div>
                 <div class="flex justify-center">
                     <a href="https://github.com/nlxntz/proyecto_lenguaje_senas" target="_blank"
-                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
                     Ver en GitHub
                     </a>
                 </div>
@@ -330,20 +330,29 @@
 </style>
 
 <script>
-    document.addEventListener("scroll", () => {
-        const homeContent = document.querySelector('#home .max-w-3xl');
+document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    const homeContent = document.querySelector('#home .max-w-3xl');
+
+    function handleScroll() {
         const scrollPos = window.scrollY;
+
+        reveals.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        });
+
         if (homeContent) {
-            homeContent.style.transform = `translateY(${scrollPos * 0.2}px)`;
+            homeContent.style.transform = `translateY(${scrollPos * 0.15}px)`;
         }
-    });
-</script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Llamada inicial
+});
 </script>
 {% endblock %}
