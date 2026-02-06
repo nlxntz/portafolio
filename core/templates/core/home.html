@@ -1,0 +1,358 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Nicolás Lintz{% endblock %}
+{% block content %}
+
+<main class="flex flex-col scroll-smooth relative w-full overflow-x-hidden">
+
+    <!-- SECCIÓN HOME -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-24 py-16 bg-[#1a013a]">
+        <div class="absolute inset-0 -z-10">
+            <div class="w-full h-full bg-gradient-to-b from-[#1a013a] to-[#2c0b5f] animate-gradient-background"></div>
+        </div>
+
+        <div class="max-w-3xl py-12 space-y-6 reveal">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-snug">
+                Hola, soy <span class="text-custom-purple">Nicolás Lintz</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+                Soy un desarrollador apasionado por soluciones digitales en <span class="text-custom-purple font-semibold">Full Stack</span>, <span class="text-custom-purple font-semibold">Backend</span>, <span class="text-custom-purple font-semibold">Frontend</span> y <span class="text-custom-purple font-semibold">despliegue de aplicaciones</span>. 
+                Me apasiona crear experiencias web modernas, seguras y con interfaces atractivas, que funcionen en cualquier dispositivo.
+            </p>
+            <div class="flex justify-center">
+                <a href="#projects" 
+                class="inline-block mt-6 bg-custom-purple text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4f46e5] transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-purple-600/50">
+                Ver mis proyectos 🚀
+                </a>
+            </div>
+        </div>
+
+        <!-- REDES SOCIALES HOME -->
+        <div class="flex justify-center gap-6 mt-8 socials z-50">
+            <a href="https://www.linkedin.com/in/nicolaslintzb" target="_blank" class="text-white hover:text-custom-purple transition-all duration-300 transform hover:scale-125">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 448 512">
+                    <path d="M100.28 448H7.4V148.9h92.88zm-46.44-344a53.79 53.79 0 1 1 53.78-53.78 53.78 53.78 0 0 1-53.78 53.78zm384.46 344h-92.68V302.4c0-34.7-12.42-58.4-43.5-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.8 13.3-2.8 21.1V448h-92.78s1.2-242.1 0-266.6h92.68v37.8c12.3-19 34.4-46 83.7-46 61.2 0 107.1 39.9 107.1 125.4z"/>
+                </svg>
+            </a>
+            <a href="https://github.com/nlxntz" target="_blank" target="_blank" class="text-white hover:text-custom-purple transition-all duration-300 transform hover:scale-125">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 0 1 3-.404c1.02.005 2.045.137 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.803 5.625-5.475 5.922.43.372.823 1.103.823 2.222 0 1.605-.015 2.897-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="mailto:lintznicolas2@gmail.com" class="text-white hover:text-custom-purple transition-all duration-300 transform hover:scale-125">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 512 512">
+                    <path d="M502.3 190.8L327.4 338c-10.4 8.9-25.2 8.9-35.6 0L9.7 190.8C3.8 186.2 0 179.4 0 172V128c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v44c0 7.4-3.8 14.2-9.7 18.8zM0 224v192c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V224l-217.4 185.6c-35.6 30.4-84.8 30.4-120.4 0L0 224z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE MÍ -->
+    <section id="about" class="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-24 py-16 bg-[#1a013a]">
+        <div class="max-w-5xl w-full space-y-12">
+
+            <!-- Introducción -->
+            <div class="text-center reveal">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-custom-purple mb-4">Sobre Mí</h2>
+                <p class="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+                    Soy <span class="text-custom-purple font-semibold">Nicolás Lintz</span>, estudiante de Ingeniería en Informática en <span class="font-semibold">Inacap Valdivia</span>. 
+                    Me destaco por desarrollar soluciones digitales escalables, ser proactivo, responsable y con habilidades para trabajo en equipo y resolución de problemas. 
+                    Además, me interesa <span class="text-custom-purple font-semibold">IA, desarrollo móvil, bases de datos y arquitectura en la nube</span>.
+                </p>
+            </div>
+
+            <!-- Educación y Experiencia -->
+            <div class="grid sm:grid-cols-2 gap-6 md:gap-8">
+                <div class="bg-gradient-to-r from-[#2c0b5f]/60 to-[#3b0a78]/60 rounded-2xl p-4 sm:p-6 border border-purple-800 shadow-purple-glow transition-transform hover:scale-105 reveal">
+                    <h3 class="text-xl sm:text-2xl font-bold text-custom-purple mb-3 flex items-center gap-2">🎓 Educación</h3>
+                    <p class="text-gray-300 text-sm sm:text-base"><span class="font-semibold">Ingeniería en Informática</span> — Inacap, Valdivia (2021 - Presente)</p>
+                </div>
+                <div class="bg-gradient-to-r from-[#2c0b5f]/60 to-[#3b0a78]/60 rounded-2xl p-4 sm:p-6 border border-purple-800 shadow-purple-glow transition-transform hover:scale-105 reveal">
+                    <h3 class="text-xl sm:text-2xl font-bold text-custom-purple mb-3 flex items-center gap-2">💼 Experiencia</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-100">Portuaria Corral — Soporte Técnico / Mantenimiento</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm mb-2">Junio 2024 – Septiembre 2024 | Valdivia, Chile</p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm sm:text-base space-y-1">
+                        <li>Mantenimiento preventivo y correctivo de servidores.</li>
+                        <li>Instalación y configuración de sistemas de monitoreo.</li>
+                        <li>Implementación de un sistema de inventario con alertas de stock bajo.</li>
+                        <li>Configuración de un servidor Windows Server 2012.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Certificados -->
+            <div class="bg-gradient-to-r from-[#2c0b5f]/60 to-[#3b0a78]/60 rounded-2xl p-4 sm:p-6 border border-purple-800 shadow-purple-glow transition-transform hover:scale-105 reveal">
+                <h3 class="text-xl sm:text-2xl font-bold text-custom-purple mb-3 flex items-center gap-2">📜 Certificados</h3>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
+                    <li><a href="{% static 'certificates/certificado_arquitectura_cloud.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Arquitectura en la Nube</a></li>
+                    <li><a href="{% static 'certificates/certificado_desarrollador_full_stack.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Desarrollador Full Stack</a></li>
+                    <li><a href="{% static 'certificates/certificado_desarrollo_de_app_basicas.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Desarrollo de Aplicaciones Básicas</a></li>
+                    <li><a href="{% static 'certificates/certificado_diseno_agil_de_sistemas.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Diseño Ágil de Sistemas</a></li>
+                    <li><a href="{% static 'certificates/certificado_diseno_y_gestion_de_base_de_datos.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Diseño y Gestión de Bases de Datos</a></li>
+                    <li><a href="{% static 'certificates/certificado_innovacion_y_emprendimiento.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Innovación y Emprendimiento</a></li>
+                    <li><a href="{% static 'certificates/certificado_soporte_computacional.pdf' %}" target="_blank" class="hover:text-custom-purple underline transition-colors">Certificado en Soporte Computacional</a></li>
+                </ul>
+            </div>
+
+            <!-- Tecnologías & Herramientas -->
+            <div class="bg-gradient-to-r from-[#2c0b5f]/60 to-[#3b0a78]/60 rounded-2xl p-4 sm:p-6 border border-purple-800 shadow-purple-glow transition-transform hover:scale-105 reveal">
+                <h3 class="text-xl sm:text-2xl font-bold text-custom-purple mb-3 flex items-center gap-2">🛠 Tecnologías & Herramientas</h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300 text-sm sm:text-base">
+
+                    <!-- Lenguajes -->
+                    <div class="bg-[#2c0b5f]/50 rounded-xl p-4 hover:bg-[#3b0a78]/60 transition-all shadow-md hover:shadow-purple-700/40 group transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-custom-purple mb-2 group-hover:scale-105 transition-transform">💻 Lenguajes</h4>
+                        <ul class="space-y-2">
+                            <li class="hover:text-white transition-all">Python</li>
+                            <li class="hover:text-white transition-all">JavaScript</li>
+                            <li class="hover:text-white transition-all">HTML / CSS</li>
+                            <li class="hover:text-white transition-all">C / C++</li>
+                        </ul>
+                    </div>
+
+                    <!-- Frameworks -->
+                    <div class="bg-[#2c0b5f]/50 rounded-xl p-4 hover:bg-[#3b0a78]/60 transition-all shadow-md hover:shadow-purple-700/40 group transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-custom-purple mb-2 group-hover:scale-105 transition-transform">⚙️ Frameworks</h4>
+                        <ul class="space-y-2">
+                            <li class="hover:text-white transition-all">Django</li>
+                            <li class="hover:text-white transition-all">React</li>
+                            <li class="hover:text-white transition-all">Node.js / Express</li>
+                            <li class="hover:text-white transition-all">FastAPI</li>
+                            <li class="hover:text-white transition-all">Laravel</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bases de Datos -->
+                    <div class="bg-[#2c0b5f]/50 rounded-xl p-4 hover:bg-[#3b0a78]/60 transition-all shadow-md hover:shadow-purple-700/40 group transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-custom-purple mb-2 group-hover:scale-105 transition-transform">🗄️ Bases de Datos</h4>
+                        <ul class="space-y-2">
+                            <li class="hover:text-white transition-all">PostgreSQL</li>
+                            <li class="hover:text-white transition-all">MySQL</li>
+                            <li class="hover:text-white transition-all">SQLite</li>
+                            <li class="hover:text-white transition-all">MongoDB</li>
+                        </ul>
+                    </div>
+
+                    <!-- Herramientas -->
+                    <div class="bg-[#2c0b5f]/50 rounded-xl p-4 hover:bg-[#3b0a78]/60 transition-all shadow-md hover:shadow-purple-700/40 group transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-custom-purple mb-2 group-hover:scale-105 transition-transform">🧰 Herramientas</h4>
+                        <ul class="space-y-2">
+                            <li class="hover:text-white transition-all">Git / GitHub</li>
+                            <li class="hover:text-white transition-all">Visual Studio Code</li>
+                            <li class="hover:text-white transition-all">Docker</li>
+                            <li class="hover:text-white transition-all">VirtualBox</li>
+                        </ul>
+                    </div>
+
+                    <!-- Otros -->
+                    <div class="bg-[#2c0b5f]/50 rounded-xl p-4 hover:bg-[#3b0a78]/60 transition-all shadow-md hover:shadow-purple-700/40 group transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-custom-purple mb-2 group-hover:scale-105 transition-transform">📊 Otros</h4>
+                        <ul class="space-y-2">
+                            <li class="hover:text-white transition-all">Excel</li>
+                            <li class="hover:text-white transition-all">Linux / Windows Server</li>
+                            <li class="hover:text-white transition-all">Azure Fundamentals</li>
+                            <li class="hover:text-white transition-all">Machine Learning (básico)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PROYECTOS -->
+    <section id="projects" class="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-24 py-16 bg-[#1a013a]">
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-custom-purple mb-4">Mis Proyectos</h2>
+        <p class="text-gray-300 mb-12 text-center max-w-2xl">
+            Colección de mis trabajos y experimentos en desarrollo web, backend y sistemas.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+            <!-- CARD 1 -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema de Lenguaje de Señas</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Proyecto de IA con FastAPI y CNN para traducir lenguaje de señas en tiempo real.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/proyecto_lenguaje_senas" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
+                    Ver en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema QR Restaurante</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Sistema web para gestión de pedidos mediante códigos QR, desarrollado con Django y Tailwind.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/proyecto_qr" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
+                    Ver en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema de Predicción Médica</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Modelo de Machine Learning para predecir diabetes con visualizaciones interactivas.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/Ev2_AIA" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
+                    Ver en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Juego de Snake con IA</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Proyecto de IA con el juego Snake para ver el comportamiento de la serpiente.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/snake_ia" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
+                    Ver en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Portafolio Personal</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Mi sitio web profesional creado con Django, Tailwind y animaciones interactivas.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/portafolio" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
+                    Ver en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="bg-gradient-to-b from-[#2c0b5f]/80 to-[#3b0a78]/80 backdrop-blur-lg shadow-purple-glow hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-500 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-custom-purple mb-4">Sistema para Portuaria Corral</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Sistema de inventario con alertas de stock y segurida, con predicción de productos.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <a href="https://github.com/nlxntz/portuaria-corral-inventario" target="_blank"
+                    class="inline-block px-5 py-2 bg-custom-purple text-white rounded-full shadow-md transition-all duration-500 hover:scale-110 hover:shadow-purple-500/70 hover:bg-[#5b45e0]">
+                    Ver en GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+    @keyframes gradient-background {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes float {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+    @keyframes fadeInUp {
+        from { opacity:0; transform:translateY(20px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+
+    .socials {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        z-index: 10;
+    }
+    .socials a {
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards, float 3s ease-in-out infinite;
+    }
+    .socials a:nth-child(1) { animation-delay:0.2s; }
+    .socials a:nth-child(2) { animation-delay:0.4s; }
+    .socials a:nth-child(3) { animation-delay:0.6s; }
+    .socials i {
+        display: inline-block;
+        line-height: 1;
+    }
+    .animate-gradient-background { background-size: 400% 400%; animation: gradient-background 15s ease infinite; }
+    .reveal { 
+        opacity:0;
+        transform: translateY(40px) scale(0.98); 
+        transition: opacity 1s ease, transform 1s ease; 
+    }
+    .reveal.active { 
+        opacity:1; 
+        transform: translateY(0) scale(1); 
+    }
+    .shadow-purple-glow { box-shadow: 0 10px 25px rgba(139,92,246,0.6); }
+    .fab, .fas { transition: transform 0.3s ease, color 0.3s ease; }
+    .fab:hover, .fas:hover { transform: scale(1.2); }
+    .animate-pulse { animation: pulse 2s infinite; }
+    .project-card { perspective:1000px; }
+    .project-card-inner { transition: transform 0.3s ease, box-shadow 0.3s ease; transform-style: preserve-3d; }
+    .project-card:hover .project-card-inner { 
+        transform: rotateY(-8px) rotateX(5deg) scale(1.05); 
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 20px 40px rgba(139,92,246,0.6); 
+    }
+    .hover\:shadow-purple-700\/40:hover { 
+        box-shadow: 0 0 25px rgba(139,92,246,0.4),
+                    0 0 40px rgba(139,92,246,0.2);
+        transition: all 0.4s ease-in-out;
+    }
+    .group:hover { animation: float 2s ease-in-out infinite; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    const homeContent = document.querySelector('#home .max-w-3xl');
+
+    function handleScroll() {
+        const scrollPos = window.scrollY;
+
+        reveals.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        });
+
+        if (homeContent) {
+            homeContent.style.transform = `translateY(${scrollPos * 0.15}px)`;
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Llamada inicial
+});
+</script>
+{% endblock %}
