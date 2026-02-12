@@ -1,0 +1,59 @@
+@keyframes gradient-background {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+@keyframes fadeInUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    z-index: 10;
+}
+.socials a {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards, float 3s ease-in-out infinite;
+}
+.socials a:nth-child(1) { animation-delay:0.2s; }
+.socials a:nth-child(2) { animation-delay:0.4s; }
+.socials a:nth-child(3) { animation-delay:0.6s; }
+.socials i {
+    display: inline-block;
+    line-height: 1;
+}
+.animate-gradient-background { background-size: 400% 400%; animation: gradient-background 15s ease infinite; }
+.reveal { 
+    opacity:0;
+    transform: translateY(40px) scale(0.98); 
+    transition: opacity 1s ease, transform 1s ease; 
+}
+.reveal.active { 
+    opacity:1; 
+    transform: translateY(0) scale(1); 
+}
+.shadow-purple-glow { box-shadow: 0 10px 25px rgba(139,92,246,0.6); }
+.fab, .fas { transition: transform 0.3s ease, color 0.3s ease; }
+.fab:hover, .fas:hover { transform: scale(1.2); }
+.animate-pulse { animation: pulse 2s infinite; }
+.project-card { perspective:1000px; }
+.project-card-inner { transition: transform 0.3s ease, box-shadow 0.3s ease; transform-style: preserve-3d; }
+.project-card:hover .project-card-inner { 
+    transform: rotateY(-8px) rotateX(5deg) scale(1.05); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 20px 40px rgba(139,92,246,0.6); 
+}
+.hover\:shadow-purple-700\/40:hover { 
+    box-shadow: 0 0 25px rgba(139,92,246,0.4),
+                0 0 40px rgba(139,92,246,0.2);
+    transition: all 0.4s ease-in-out;
+}
+.group:hover { animation: float 2s ease-in-out infinite; }
