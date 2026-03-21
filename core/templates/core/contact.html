@@ -1,50 +1,153 @@
 {% extends 'core/base.html' %}
 {% load static %}
-{% block title %}Contacto - Nicolás Lintz{% endblock %}
+
+{% block title %}Contacto — Nicolás Lintz{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'core/css/contact.css' %}">
 {% endblock %}
+
 {% block content %}
 
-<section class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-b from-[#100034] to-[#1a013a] relative overflow-hidden">
-    <div class="absolute w-[500px] h-[500px] bg-purple-600/20 blur-[150px] rounded-full top-[-150px] right-[-150px]"></div>
-    <div class="relative w-full max-w-xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-[0_0_80px_rgba(168,85,247,0.15)] reveal">
-        <h1 class="text-4xl font-extrabold text-white mb-4 text-center">
-            Contáctame
-        </h1>
+<section class="relative min-h-screen flex items-center justify-center px-6 py-28 overflow-hidden bg-[#0a0a14]">
 
-        <p class="text-gray-400 text-center mb-10">
-            Si tienes alguna idea o proyecto en mente, conversemos.
-        </p>
+    <!-- Separador top -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
 
-        <form id="contactForm" method="POST" data-url="{% url 'contact' %}" action="{% url 'contact' %}" class="space-y-6">
-            {% csrf_token %}
+    <!-- Glow orbs -->
+    <div class="absolute top-20 right-0 w-[400px] h-[400px] bg-purple-600/10 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-[300px] h-[300px] bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-            <div class="reveal">
-                {{ form.name }}
+    <div class="relative w-full max-w-5xl mx-auto">
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+            <!-- ── Columna izquierda: info ── -->
+            <div class="space-y-10 reveal-left">
+
+                <div>
+                    <span class="section-tag">Contacto</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-2 leading-tight">
+                        Hablemos de<br>
+                        <span class="grad-text">tu proyecto</span>
+                    </h1>
+                    <p class="mt-5 text-gray-400 leading-relaxed">
+                        ¿Tienes una idea, un proyecto o simplemente quieres conversar?
+                        Estoy disponible para trabajo freelance, colaboraciones y oportunidades laborales.
+                    </p>
+                </div>
+
+                <!-- Info de contacto directo -->
+                <div class="space-y-4">
+                    <a href="mailto:lintznicolas2@gmail.com"
+                       class="flex items-center gap-4 p-4 card-glow group hover:border-purple-500/40 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-900/60 transition-colors duration-300">
+                            <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 512 512">
+                                <path d="M502.3 190.8L327.4 338c-10.4 8.9-25.2 8.9-35.6 0L9.7 190.8C3.8 186.2 0 179.4 0 172V128c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v44c0 7.4-3.8 14.2-9.7 18.8zM0 224v192c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V224l-217.4 185.6c-35.6 30.4-84.8 30.4-120.4 0L0 224z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-600 uppercase tracking-widest">Email</p>
+                            <p class="text-sm text-gray-300 group-hover:text-purple-300 transition-colors duration-200">lintznicolas2@gmail.com</p>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-700 group-hover:text-purple-500 ml-auto transition-all duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/nicolaslintzb" target="_blank"
+                       class="flex items-center gap-4 p-4 card-glow group hover:border-purple-500/40 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-900/60 transition-colors duration-300">
+                            <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 448 512">
+                                <path d="M100.28 448H7.4V148.9h92.88zm-46.44-344a53.79 53.79 0 1 1 53.78-53.78 53.78 53.78 0 0 1-53.78 53.78zm384.46 344h-92.68V302.4c0-34.7-12.42-58.4-43.5-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.8 13.3-2.8 21.1V448h-92.78s1.2-242.1 0-266.6h92.68v37.8c12.3-19 34.4-46 83.7-46 61.2 0 107.1 39.9 107.1 125.4z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-600 uppercase tracking-widest">LinkedIn</p>
+                            <p class="text-sm text-gray-300 group-hover:text-purple-300 transition-colors duration-200">nicolaslintzb</p>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-700 group-hover:text-purple-500 ml-auto transition-all duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://github.com/nlxntz" target="_blank"
+                       class="flex items-center gap-4 p-4 card-glow group hover:border-purple-500/40 transition-all duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-900/60 transition-colors duration-300">
+                            <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 0 1 3-.404c1.02.005 2.045.137 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.803 5.625-5.475 5.922.43.372.823 1.103.823 2.222 0 1.605-.015 2.897-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-600 uppercase tracking-widest">GitHub</p>
+                            <p class="text-sm text-gray-300 group-hover:text-purple-300 transition-colors duration-200">nlxntz</p>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-700 group-hover:text-purple-500 ml-auto transition-all duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Disponibilidad -->
+                <div class="flex items-center gap-3 text-sm text-gray-500">
+                    <span class="hero-badge-dot"></span>
+                    Disponible para proyectos — respondo en menos de 24h
+                </div>
             </div>
 
-            <div class="reveal">
-                {{ form.email }}
+            <!-- ── Columna derecha: formulario ── -->
+            <div class="card-glow p-8 reveal-right">
+
+                <form id="contactForm" method="POST"
+                      data-url="{% url 'contact' %}"
+                      action="{% url 'contact' %}"
+                      class="space-y-5" novalidate>
+                    {% csrf_token %}
+
+                    <!-- Nombre -->
+                    <div class="form-field">
+                        <label class="field-label">Nombre</label>
+                        <div class="field-wrapper">
+                            {{ form.name }}
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-field">
+                        <label class="field-label">Email</label>
+                        <div class="field-wrapper">
+                            {{ form.email }}
+                        </div>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="form-field">
+                        <label class="field-label">Mensaje</label>
+                        <div class="field-wrapper">
+                            {{ form.message }}
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button id="submitBtn" type="submit"
+                            class="btn-shimmer w-full py-3.5 rounded-xl font-semibold text-sm bg-purple-600 hover:bg-purple-500 text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 mt-2">
+                        <span id="btnText" class="flex items-center justify-center gap-2">
+                            Enviar mensaje
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </span>
+                    </button>
+
+                </form>
             </div>
 
-            <div class="reveal">
-                {{ form.message }}
-            </div>
-
-            <div class="flex justify-center pt-4 reveal">
-                <button 
-                    id="submitBtn"
-                    type="submit"
-                    class="relative px-8 py-3 rounded-full font-semibold bg-purple-600 overflow-hidden group transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(168,85,247,0.4)]"
-                >
-                    <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition duration-700"></span>
-                    <span class="relative z-10">Enviar mensaje</span>
-                </button>
-            </div>
-        </form>
-        <div id="toastContainer" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end space-y-3"></div>
+        </div>
     </div>
+
+    <!-- Toast container -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3"></div>
+
 </section>
-<script src="{% static 'core/js/contact.js' %}"></script>
+
 {% endblock %}

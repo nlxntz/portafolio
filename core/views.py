@@ -12,13 +12,14 @@ from .forms import ContactForm
 logger = logging.getLogger(__name__)
 
 def home(request):
-    return render(request, 'core/home.html')
+    projects = Project.objects.all()
+    return render(request, 'core/home.html', {'projects': projects})
 
 def about(request):
     return render(request, 'core/about.html')
 
 def projects(request):
-    projects = Project.objects.all().order_by('-created_at')
+    projects = Project.objects.all()
     return render(request, 'core/projects.html', {'projects': projects})
 
 def contact(request):
@@ -58,5 +59,5 @@ def contact(request):
         else:
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 return JsonResponse({'status': 'error', 'message': 'Por favor completa todos los campos correctamente.'})
-    
+
     return render(request, 'core/contact.html', {'form': ContactForm()})

@@ -1,0 +1,21 @@
+{
+    "name": "Nicolás Lintz — Full Stack Developer",
+    "short_name": "NLintz",
+    "description": "Portafolio de Nicolás Lintz, Ingeniero en Informática Full Stack.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a14",
+    "theme_color": "#0a0a14",
+    "icons": [
+        {
+            "src": "/static/core/img/favicon-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/static/core/img/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
