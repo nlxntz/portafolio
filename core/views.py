@@ -64,3 +64,21 @@ def contact(request):
 
 def handler404(request, exception):
     return render(request, '404.html', status=404)
+
+def download_cv(request):
+    import os
+    from django.http import FileResponse, Http404
+    
+    cv_path = os.path.join(settings.BASE_DIR, 'static', 'core', 'cv', 'cv_nicolas_lintz.pdf')
+    print("Buscando CV en:", cv_path)
+    print("Existe:", os.path.exists(cv_path))
+
+    if not os.path.exists(cv_path):
+        raise Http404("CV no disponible.")
+
+    response = FileResponse(
+        open(cv_path, 'rb'),
+        content_type='application/pdf',
+    )
+    response['Content-Disposition'] = 'attachment; filename="CV_Nicolas_Lintz.pdf"'
+    return response
