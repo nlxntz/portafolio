@@ -1,4 +1,3 @@
-// ── AOS init ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ── Header shrink on scroll ───────────────────────────────
     const header = document.querySelector('header');
     if (header) {
         const onScroll = () => {
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         onScroll();
     }
 
-    // ── Smooth scroll para links internos ────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             const target = document.querySelector(link.getAttribute('href'));

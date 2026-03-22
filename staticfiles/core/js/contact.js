@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!form) return;
 
-    // ── Submit ────────────────────────────────────────────────
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setLoading(false);
     });
 
-    // ── Estado del botón ─────────────────────────────────────
     function setLoading(loading) {
         btn.disabled = loading;
         if (loading) {
@@ -55,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ── Toast ────────────────────────────────────────────────
     function showToast(message, type) {
         const toast = document.createElement('div');
         toast.className = `toast toast-${type} toast-enter`;

@@ -1,4 +1,3 @@
-/* ── Reveal base ────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(36px);
@@ -9,8 +8,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ── Reveal lateral ─────────────────────────────────────── */
 .reveal-left {
   opacity: 0;
   transform: translateX(-50px);
@@ -28,8 +25,6 @@
   opacity: 1;
   transform: translateX(0);
 }
-
-/* ── Reveal scale (para cards) ──────────────────────────── */
 .reveal-scale {
   opacity: 0;
   transform: scale(0.94) translateY(20px);
@@ -40,8 +35,6 @@
   opacity: 1;
   transform: scale(1) translateY(0);
 }
-
-/* ── Stagger container ──────────────────────────────────── */
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(32px);
@@ -56,7 +49,6 @@
 .reveal-stagger.active > *:nth-child(5)  { transition-delay: 0.33s; }
 .reveal-stagger.active > *:nth-child(6)  { transition-delay: 0.40s; }
 
-/* ── Hero typewriter cursor ─────────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
@@ -72,7 +64,6 @@
   animation: blink 1s step-end infinite;
 }
 
-/* ── Floating glow orbs ─────────────────────────────────── */
 @keyframes float-orb {
   0%, 100% { transform: translate(-50%, -50%) scale(1);    }
   33%       { transform: translate(-48%, -53%) scale(1.06); }
@@ -86,7 +77,6 @@
 }
 .orb-float-2 { animation: float-orb-2 16s ease-in-out infinite; }
 
-/* ── Shimmer on buttons ─────────────────────────────────── */
 @keyframes shimmer {
   from { transform: translateX(-100%); }
   to   { transform: translateX(100%);  }
@@ -110,7 +100,6 @@
   animation: shimmer 0.65s ease forwards;
 }
 
-/* ── Skill bar fill ─────────────────────────────────────── */
 @keyframes bar-fill {
   from { width: 0; }
   to   { width: var(--pct); }
@@ -123,8 +112,6 @@
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .skill-bar-fill.active { width: var(--pct); }
-
-/* ── Grain overlay ──────────────────────────────────────── */
 .grain::before {
   content: "";
   position: fixed;

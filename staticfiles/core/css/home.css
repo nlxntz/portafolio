@@ -1,9 +1,3 @@
-/* ══════════════════════════════════════════
-   HOME.CSS — Nicolás Lintz Portfolio
-   Fase 2: Rediseño visual completo
-═══════════════════════════════════════════ */
-
-/* ── HERO ───────────────────────────────── */
 .hero-noise {
   position: absolute;
   inset: 0;
@@ -13,8 +7,6 @@
   pointer-events: none;
   z-index: 0;
 }
-
-/* Grid de puntos decorativos */
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -25,8 +17,6 @@
   pointer-events: none;
   z-index: 0;
 }
-
-/* Badge "disponible" */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -40,7 +30,6 @@
   color: #c084fc;
   letter-spacing: 0.03em;
 }
-
 .hero-badge-dot {
   width: 7px;
   height: 7px;
@@ -56,7 +45,6 @@
   50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);  }
 }
 
-/* Typewriter roles */
 #typewriter-text {
   background: linear-gradient(135deg, #c084fc 0%, #818cf8 60%, #67e8f9 100%);
   -webkit-background-clip: text;
@@ -65,8 +53,6 @@
   min-height: 1.2em;
   display: inline-block;
 }
-
-/* Stats row */
 .hero-stats {
   display: flex;
   align-items: center;
@@ -74,11 +60,9 @@
   gap: 2.5rem;
   flex-wrap: wrap;
 }
-
 .hero-stat-item {
   text-align: center;
 }
-
 .hero-stat-num {
   font-size: 1.6rem;
   font-weight: 800;
@@ -88,7 +72,6 @@
   background-clip: text;
   line-height: 1.1;
 }
-
 .hero-stat-label {
   font-size: 0.72rem;
   color: #6b7280;
@@ -96,21 +79,17 @@
   letter-spacing: 0.08em;
   margin-top: 2px;
 }
-
 .hero-stat-divider {
   width: 1px;
   height: 2.5rem;
   background: rgba(255,255,255,0.08);
 }
-
-/* ── ABOUT ──────────────────────────────── */
 .about-avatar-ring {
   position: relative;
   width: 100px;
   height: 100px;
   flex-shrink: 0;
 }
-
 .about-avatar-ring::before {
   content: "";
   position: absolute;
@@ -120,7 +99,6 @@
   z-index: 0;
   animation: spin-slow 6s linear infinite;
 }
-
 .about-avatar-inner {
   position: relative;
   z-index: 1;
@@ -142,13 +120,10 @@
   from { transform: rotate(0deg);   }
   to   { transform: rotate(360deg); }
 }
-
-/* Timeline experiencia */
 .timeline-item {
   position: relative;
   padding-left: 1.75rem;
 }
-
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -160,7 +135,6 @@
   background: #a855f7;
   box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
-
 .timeline-item::after {
   content: "";
   position: absolute;
@@ -170,16 +144,12 @@
   height: calc(100% + 1rem);
   background: linear-gradient(to bottom, rgba(168,85,247,0.4), transparent);
 }
-
 .timeline-item:last-child::after { display: none; }
-
-/* Skills con iconos */
 .skill-icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   gap: 0.75rem;
 }
-
 .skill-icon-item {
   display: flex;
   flex-direction: column;
@@ -192,27 +162,22 @@
   transition: all 0.25s ease;
   cursor: default;
 }
-
 .skill-icon-item:hover {
   background: rgba(168, 85, 247, 0.1);
   border-color: rgba(168, 85, 247, 0.3);
   transform: translateY(-3px);
 }
-
 .skill-icon-item svg,
 .skill-icon-item img {
   width: 28px;
   height: 28px;
 }
-
 .skill-icon-item span {
   font-size: 0.65rem;
   color: #9ca3af;
   text-align: center;
   line-height: 1.2;
 }
-
-/* ── PROJECTS ───────────────────────────── */
 .project-card-tag {
   position: absolute;
   top: -10px;
@@ -226,8 +191,6 @@
   background: linear-gradient(135deg, #9333ea, #4f46e5);
   color: white;
 }
-
-/* Número decorativo en cards */
 .project-num {
   position: absolute;
   top: 1.5rem;
@@ -239,6 +202,4 @@
   pointer-events: none;
   user-select: none;
 }
-
-/* ── SCROLLBAR SECTION ──────────────────── */
 section { scroll-margin-top: 80px; }

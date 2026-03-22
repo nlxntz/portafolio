@@ -1,15 +1,8 @@
-/* ══════════════════════════════════════════
-   CONTACT.CSS — Nicolás Lintz Portfolio
-   Fase 3: Rediseño visual
-═══════════════════════════════════════════ */
-
-/* ── Campos del formulario ──────────────── */
 .form-field {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
-
 .field-label {
     font-size: 0.72rem;
     font-weight: 600;
@@ -17,8 +10,6 @@
     text-transform: uppercase;
     color: #6b7280;
 }
-
-/* Inputs y textarea vía Django form */
 .field-wrapper input,
 .field-wrapper textarea {
     width: 100%;
@@ -35,31 +26,25 @@
     -webkit-appearance: none;
     appearance: none;
 }
-
 .field-wrapper input::placeholder,
 .field-wrapper textarea::placeholder {
     color: #374151;
 }
-
 .field-wrapper input:hover,
 .field-wrapper textarea:hover {
     border-color: rgba(168, 85, 247, 0.25);
     background: rgba(255, 255, 255, 0.06);
 }
-
 .field-wrapper input:focus,
 .field-wrapper textarea:focus {
     border-color: rgba(168, 85, 247, 0.55);
     background: rgba(168, 85, 247, 0.05);
     box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
 }
-
-/* Altura textarea */
 .field-wrapper textarea {
     min-height: 130px;
 }
 
-/* ── Toasts ─────────────────────────────── */
 @keyframes toast-in {
     from { opacity: 0; transform: translateX(20px) scale(0.97); }
     to   { opacity: 1; transform: translateX(0)    scale(1);    }
@@ -68,10 +53,8 @@
     from { opacity: 1; transform: translateX(0)    scale(1);    }
     to   { opacity: 0; transform: translateX(20px) scale(0.97); }
 }
-
 .toast-enter { animation: toast-in  0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 .toast-exit  { animation: toast-out 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-
 .toast {
     display: flex;
     align-items: center;
@@ -85,30 +68,25 @@
     border: 1px solid;
     backdrop-filter: blur(20px);
 }
-
 .toast-success {
     background: rgba(16, 185, 129, 0.12);
     border-color: rgba(16, 185, 129, 0.25);
     color: #6ee7b7;
 }
-
 .toast-error {
     background: rgba(239, 68, 68, 0.12);
     border-color: rgba(239, 68, 68, 0.25);
     color: #fca5a5;
 }
-
 .toast-icon {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
 }
-
 .toast-success .toast-icon { background: #10b981; box-shadow: 0 0 8px #10b981; }
 .toast-error   .toast-icon { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
 
-/* ── Spinner en botón ───────────────────── */
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
