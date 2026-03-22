@@ -61,3 +61,6 @@ def contact(request):
                 return JsonResponse({'status': 'error', 'message': 'Por favor completa todos los campos correctamente.'})
 
     return render(request, 'core/contact.html', {'form': ContactForm()})
+
+def handler404(request, exception):
+    return render(request, '404.html', status=404)

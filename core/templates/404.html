@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}404 — Página no encontrada · Nicolás Lintz{% endblock %}
+
+{% block meta_description %}La página que buscas no existe. Vuelve al portafolio de Nicolás Lintz.{% endblock %}
+
+{% block content %}
+
+<section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-[#0a0a14]">
+
+    <!-- Glow orbs -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/8 blur-[140px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-20 right-20 w-64 h-64 bg-indigo-600/8 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <!-- Hero grid -->
+    <div class="absolute inset-0 pointer-events-none"
+         style="background-image:radial-gradient(circle,rgba(168,85,247,0.1) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,black,transparent);">
+    </div>
+
+    <div class="relative z-10 text-center space-y-8 max-w-xl mx-auto">
+
+        <!-- Número 404 -->
+        <div class="relative">
+            <span class="block text-[10rem] font-black leading-none select-none"
+                  style="background:linear-gradient(135deg,rgba(192,132,252,0.15) 0%,rgba(129,140,248,0.08) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                404
+            </span>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-[10rem] font-black leading-none select-none"
+                      style="background:linear-gradient(135deg,#c084fc 0%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:blur(40px);opacity:0.3;">
+                    404
+                </span>
+            </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="space-y-3 -mt-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-white">
+                Página no encontrada
+            </h1>
+            <p class="text-gray-500 leading-relaxed">
+                La ruta que buscas no existe o fue movida.<br>
+                Vuelve al inicio y sigue explorando.
+            </p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap justify-center gap-4 pt-2">
+            <a href="{% url 'home' %}"
+               class="btn-shimmer px-7 py-3 rounded-full font-semibold text-sm bg-purple-600 hover:bg-purple-500 text-white transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(139,92,246,0.35)]">
+                Volver al inicio
+            </a>
+            <a href="{% url 'contact' %}"
+               class="px-7 py-3 rounded-full font-semibold text-sm border border-purple-500/40 text-purple-300 hover:bg-purple-500/15 transition-all duration-300 hover:scale-105">
+                Contacto
+            </a>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="flex items-center justify-center gap-6 pt-2 text-sm text-gray-600">
+            <a href="{% url 'home' %}#about"    class="hover:text-purple-400 transition-colors duration-200">Sobre mí</a>
+            <span class="w-1 h-1 rounded-full bg-gray-800"></span>
+            <a href="{% url 'home' %}#projects" class="hover:text-purple-400 transition-colors duration-200">Proyectos</a>
+            <span class="w-1 h-1 rounded-full bg-gray-800"></span>
+            <a href="https://github.com/nlxntz" target="_blank" class="hover:text-purple-400 transition-colors duration-200">GitHub</a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
