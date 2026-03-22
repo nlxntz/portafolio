@@ -1,30 +1,19 @@
 {% extends 'core/base.html' %}
 {% load static %}
-
 {% block title %}Contacto — Nicolás Lintz{% endblock %}
-
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'core/css/contact.css' %}">
 {% endblock %}
-
 {% block content %}
 
 <section class="relative min-h-screen flex items-center justify-center px-6 py-28 overflow-hidden bg-[#0a0a14]">
-
-    <!-- Separador top -->
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
-
-    <!-- Glow orbs -->
     <div class="absolute top-20 right-0 w-[400px] h-[400px] bg-purple-600/10 blur-[130px] rounded-full pointer-events-none"></div>
     <div class="absolute bottom-20 left-0 w-[300px] h-[300px] bg-indigo-600/10 blur-[100px] rounded-full pointer-events-none"></div>
-
     <div class="relative w-full max-w-5xl mx-auto">
 
         <div class="grid lg:grid-cols-2 gap-12 items-start">
-
-            <!-- ── Columna izquierda: info ── -->
             <div class="space-y-10 reveal-left">
-
                 <div>
                     <span class="section-tag">Contacto</span>
                     <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-2 leading-tight">
@@ -37,7 +26,6 @@
                     </p>
                 </div>
 
-                <!-- Info de contacto directo -->
                 <div class="space-y-4">
                     <a href="mailto:lintznicolas2@gmail.com"
                        class="flex items-center gap-4 p-4 card-glow group hover:border-purple-500/40 transition-all duration-300">
@@ -88,23 +76,19 @@
                     </a>
                 </div>
 
-                <!-- Disponibilidad -->
                 <div class="flex items-center gap-3 text-sm text-gray-500">
                     <span class="hero-badge-dot"></span>
                     Disponible para proyectos — respondo en menos de 24h
                 </div>
             </div>
 
-            <!-- ── Columna derecha: formulario ── -->
             <div class="card-glow p-8 reveal-right">
-
                 <form id="contactForm" method="POST"
                       data-url="{% url 'contact' %}"
                       action="{% url 'contact' %}"
                       class="space-y-5" novalidate>
                     {% csrf_token %}
 
-                    <!-- Nombre -->
                     <div class="form-field">
                         <label class="field-label">Nombre</label>
                         <div class="field-wrapper">
@@ -112,7 +96,6 @@
                         </div>
                     </div>
 
-                    <!-- Email -->
                     <div class="form-field">
                         <label class="field-label">Email</label>
                         <div class="field-wrapper">
@@ -120,7 +103,6 @@
                         </div>
                     </div>
 
-                    <!-- Mensaje -->
                     <div class="form-field">
                         <label class="field-label">Mensaje</label>
                         <div class="field-wrapper">
@@ -128,7 +110,6 @@
                         </div>
                     </div>
 
-                    <!-- Submit -->
                     <button id="submitBtn" type="submit"
                             class="btn-shimmer w-full py-3.5 rounded-xl font-semibold text-sm bg-purple-600 hover:bg-purple-500 text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 mt-2">
                         <span id="btnText" class="flex items-center justify-center gap-2">
@@ -138,16 +119,11 @@
                             </svg>
                         </span>
                     </button>
-
                 </form>
             </div>
-
         </div>
     </div>
 
-    <!-- Toast container -->
     <div id="toastContainer" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3"></div>
-
 </section>
-
 {% endblock %}

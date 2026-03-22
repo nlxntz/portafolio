@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ── SEO básico ─────────────────────────────────────── -->
     <title>{% block title %}Nicolás Lintz — Full Stack Developer{% endblock %}</title>
     <meta name="description"     content="{% block meta_description %}Ingeniero en Informática especializado en desarrollo Full Stack, Backend y Frontend. Construyo aplicaciones modernas, escalables y bien estructuradas.{% endblock %}">
     <meta name="keywords"        content="Nicolás Lintz, Full Stack Developer, Django, Python, React, FastAPI, Valdivia, Chile, desarrollador web, backend, frontend">
@@ -13,8 +11,6 @@
     <meta name="robots"          content="index, follow">
     <meta name="theme-color"     content="#0a0a14">
     <link rel="canonical"        href="{% block canonical %}https://lintz.cl{% endblock %}">
-
-    <!-- ── Open Graph (LinkedIn, Facebook, WhatsApp) ─────── -->
     <meta property="og:type"        content="website">
     <meta property="og:url"         content="{% block og_url %}https://lintz.cl{% endblock %}">
     <meta property="og:title"       content="{% block og_title %}Nicolás Lintz — Full Stack Developer{% endblock %}">
@@ -24,24 +20,16 @@
     <meta property="og:image:height" content="630">
     <meta property="og:locale"      content="es_CL">
     <meta property="og:site_name"   content="Nicolás Lintz">
-
-    <!-- ── Twitter / X Card ──────────────────────────────── -->
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="{% block twitter_title %}Nicolás Lintz — Full Stack Developer{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Ingeniero en Informática especializado en Full Stack, Backend y Frontend.{% endblock %}">
     <meta name="twitter:image"       content="{% block twitter_image %}https://lintz.cl{% static 'core/img/og-image.png' %}{% endblock %}">
-
-    <!-- ── Favicon ───────────────────────────────────────── -->
     <link rel="icon"             type="image/png" sizes="32x32" href="{% static 'core/img/favicon-32.png' %}">
     <link rel="icon"             type="image/png" sizes="16x16" href="{% static 'core/img/favicon-16.png' %}">
     <link rel="apple-touch-icon" sizes="180x180"                href="{% static 'core/img/apple-touch-icon.png' %}">
     <link rel="manifest"                                         href="{% static 'core/img/site.webmanifest' %}">
-
-    <!-- ── Preconnect (performance) ──────────────────────── -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://unpkg.com">
-
-    <!-- ── Estilos ───────────────────────────────────────── -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -49,7 +37,6 @@
     <link rel="stylesheet" href="{% static 'core/css/animations.css' %}">
     {% block extra_css %}{% endblock %}
 
-    <!-- ── Schema.org JSON-LD ────────────────────────────── -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -73,7 +60,6 @@
 </head>
 <body class="min-h-screen bg-[#0a0a14] text-white overflow-x-hidden">
 
-    <!-- ── Nav ───────────────────────────────────────────── -->
     <header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a14]/80 backdrop-blur-md border-b border-purple-900/30 transition-all duration-300">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
@@ -81,7 +67,6 @@
                 <span class="text-purple-400">N</span>Lintz
             </a>
 
-            <!-- Desktop -->
             <div class="hidden md:flex items-center gap-8">
                 <a href="{% url 'home' %}#home"     class="nav-link">Inicio</a>
                 <a href="{% url 'home' %}#about"    class="nav-link">Sobre mí</a>
@@ -92,7 +77,6 @@
                 </a>
             </div>
 
-            <!-- Mobile toggle -->
             <button id="menu-btn"
                     class="md:hidden text-purple-400 p-2 rounded-lg hover:bg-purple-900/30 transition-colors duration-200"
                     aria-label="Abrir menú"
@@ -106,7 +90,6 @@
             </button>
         </nav>
 
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#0a0a14]/98 backdrop-blur-md border-t border-purple-900/20">
             <div class="flex flex-col px-6 py-5 gap-5 text-sm font-medium">
                 <a href="{% url 'home' %}#home"     class="text-gray-400 hover:text-purple-400 transition-colors">Inicio</a>
@@ -124,7 +107,6 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- ── Footer ─────────────────────────────────────────── -->
     <footer class="relative border-t border-white/5 bg-[#080810]">
         <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
 
@@ -165,7 +147,6 @@
         </div>
     </footer>
 
-    <!-- ── Scripts ────────────────────────────────────────── -->
     <script src="{% static 'core/js/base.js' %}"></script>
     <script src="{% static 'core/js/main.js' %}"></script>
     <script src="{% static 'core/js/reveal.js' %}"></script>

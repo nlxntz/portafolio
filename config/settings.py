@@ -3,8 +3,6 @@ from decouple import config
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# ── Seguridad ─────────────────────────────────────────────────
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
@@ -19,7 +17,7 @@ render_host = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if render_host:
     ALLOWED_HOSTS.append(render_host)
 
-# ── Apps ──────────────────────────────────────────────────────
+# ── Apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,7 +28,7 @@ INSTALLED_APPS = [
     'core',
 ]
 
-# ── Middleware ────────────────────────────────────────────────
+# ── Middleware 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -44,7 +42,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-# ── Templates ─────────────────────────────────────────────────
+# ── Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -62,7 +60,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# ── Base de datos ─────────────────────────────────────────────
+# ── Base de datos 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -70,7 +68,7 @@ DATABASES = {
     }
 }
 
-# ── Validación de contraseñas ─────────────────────────────────
+# ── Validación de contraseñas 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -78,30 +76,31 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# ── Internacionalización ──────────────────────────────────────
+# ── Internacionalización
 LANGUAGE_CODE = 'es-cl'
 TIME_ZONE = 'America/Santiago'
 USE_I18N = True
 USE_TZ = True
 
-# ── Archivos estáticos ────────────────────────────────────────
+# ── Archivos estáticos 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# ── Media ─────────────────────────────────────────────────────
+# ── Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# ── Email ─────────────────────────────────────────────────────
+# ── Email
 EMAIL_BACKEND     = config('EMAIL_BACKEND',      default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST        = config('EMAIL_HOST',         default='smtp.gmail.com')
 EMAIL_PORT        = config('EMAIL_PORT',         default=587, cast=int)
 EMAIL_USE_TLS     = config('EMAIL_USE_TLS',      default=True, cast=bool)
+EMAIL_USE_SSL     = config('EMAIL_USE_SSL', default=False, cast=bool)
 EMAIL_HOST_USER   = config('EMAIL_HOST_USER',    default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
 
-# ── Misc ──────────────────────────────────────────────────────
+# ── Misc
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

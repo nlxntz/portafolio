@@ -1,4 +1,3 @@
-// ── Typewriter ───────────────────────────────────────────────
 const roles   = ['Full Stack Developer', 'Backend Engineer', 'Frontend Developer', 'Data Enthusiast'];
 const target  = document.getElementById('typewriter-text');
 const cursor  = document.querySelector('.cursor-blink');
@@ -38,7 +37,6 @@ if (target) {
     setTimeout(typeLoop, 600);
 }
 
-// ── Contador animado (stats) ─────────────────────────────────
 function animateCounter(el) {
     const target = parseInt(el.dataset.target, 10);
     const suffix = el.dataset.suffix || '';
@@ -65,7 +63,6 @@ const statsObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('[data-target]').forEach(el => statsObserver.observe(el));
 
-// ── Skill bars ───────────────────────────────────────────────
 const barObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (e.isIntersecting) {
@@ -77,7 +74,6 @@ const barObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.skill-bar-fill').forEach(el => barObserver.observe(el));
 
-// ── AOS init (si está cargado) ───────────────────────────────
 if (typeof AOS !== 'undefined') {
     AOS.init({ once: true, duration: 700, offset: 80 });
 }
