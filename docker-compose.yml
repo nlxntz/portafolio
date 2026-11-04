@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: portafolio_mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: portafolio_db
+      MYSQL_USER: portafolio_user
+      MYSQL_PASSWORD: portafolio_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - portafolio_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: portafolio_backend
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    environment:
+      CI_ENVIRONMENT: development
+      database.default.hostname: mysql
+      database.default.database: portafolio_db
+      database.default.username: portafolio_user
+      database.default.password: portafolio_password
+      database.default.DBDriver: MySQLi
+      database.default.port: 3306
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - portafolio_network
+
+  frontend:
+    image: node:20-alpine
+    container_name: portafolio_frontend
+    restart: always
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    working_dir: /app
+    command: sh -c "npm install && npm start -- --host 0.0.0.0 --poll 2000"
+    depends_on:
+      - backend
+    networks:
+      - portafolio_network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  portafolio_network:
+    driver: bridge

@@ -1,0 +1,34 @@
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Backend (CodeIgniter 4)
+backend/vendor/
+backend/writable/cache/*
+!backend/writable/cache/index.html
+!backend/writable/cache/.gitkeep
+backend/writable/debugbar/*
+backend/writable/logs/*
+!backend/writable/logs/index.html
+!backend/writable/logs/.gitkeep
+backend/writable/session/*
+!backend/writable/session/index.html
+!backend/writable/session/.gitkeep
+backend/writable/uploads/*
+!backend/writable/uploads/index.html
+!backend/writable/uploads/.gitkeep
+backend/public/uploads/projects/*
+!backend/public/uploads/projects/.gitkeep
+
+# Frontend (Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
