@@ -1,6 +1,20 @@
 <div class="relative min-h-screen bg-dark-950 text-gray-200 overflow-x-hidden">
 
   <!-- ========================================================================= -->
+  <!-- TOAST NOTIFICATION FLOTANTE -->
+  <!-- ========================================================================= -->
+  @if (toast()) {
+    <div class="fixed bottom-6 right-6 z-50 animate-bounce-in max-w-md">
+      <div [class]="toast()?.type === 'success' ? 'border-emerald-500/50 bg-emerald-950/90 text-emerald-200' : 'border-rose-500/50 bg-rose-950/90 text-rose-200'"
+           class="flex items-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-xl shadow-2xl transition-all">
+        <span class="text-lg">{{ toast()?.type === 'success' ? '✓' : '⚠' }}</span>
+        <p class="text-xs font-medium">{{ toast()?.text }}</p>
+        <button (click)="toast.set(null)" class="text-xs opacity-60 hover:opacity-100 ml-2">✕</button>
+      </div>
+    </div>
+  }
+
+  <!-- ========================================================================= -->
   <!-- NAVBAR -->
   <!-- ========================================================================= -->
   <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-950/80 border-b border-white/5 transition-all">
@@ -11,7 +25,7 @@
         </div>
         <div class="flex flex-col">
           <span class="font-bold text-white text-base tracking-tight leading-none group-hover:text-purple-300 transition-colors">Nicolás Lintz</span>
-          <span class="text-xs text-purple-400/80 font-mono mt-1">Full Stack Engineer</span>
+          <span class="text-xs text-purple-400 font-mono mt-1">Full Stack Developer</span>
         </div>
       </a>
 
@@ -24,7 +38,14 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="#contact" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-purple hover:bg-purple-500 text-white transition-all shadow-glow-purple hover:scale-105">
+        <a href="/cv/cv_nicolas_lintz.pdf" target="_blank" download="CV_Nicolas_Lintz.pdf"
+           class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium border border-white/10 hover:border-purple-500/50 text-gray-300 hover:text-white transition-all">
+          <svg class="w-3.5 h-3.5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          CV
+        </a>
+        <a href="#contact" class="px-5 py-2 rounded-full text-xs font-semibold bg-brand-purple hover:bg-purple-500 text-white transition-all shadow-glow-purple hover:scale-105">
           Hablemos
         </a>
         <a routerLink="/admin/login" title="Panel CMS" class="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:text-purple-300 transition-all text-gray-400">
@@ -43,16 +64,16 @@
     <div class="hero-grid absolute inset-0 pointer-events-none"></div>
 
     <!-- Orbes de luz de fondo -->
-    <div class="orb-float absolute top-1/2 left-1/2 w-[700px] h-[700px] rounded-full pointer-events-none opacity-20"
-         style="background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, transparent 70%); transform: translate(-50%, -50%);"></div>
+    <div class="orb-float absolute top-1/2 left-1/2 w-[750px] h-[750px] rounded-full pointer-events-none opacity-20"
+         style="background: radial-gradient(circle, rgba(147, 51, 234, 0.45) 0%, transparent 70%); transform: translate(-50%, -50%);"></div>
     <div class="absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full pointer-events-none opacity-15 blur-[100px] bg-brand-indigo"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center gap-7">
 
-      <!-- Badge de disponibilidad -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/40 border border-purple-500/30 text-purple-300 text-xs font-medium tracking-wide">
+      <!-- Badge de rol actual -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-purple-950/50 border border-purple-500/40 text-purple-200 text-xs font-medium tracking-wide shadow-glow-purple">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Disponible para nuevos desafíos & proyectos
+        🏥 Desarrollador en Hospital Base de Valdivia • Abierto a proyectos
       </div>
 
       <!-- Nombre -->
@@ -66,11 +87,11 @@
         <span class="w-0.5 h-6 bg-purple-400 animate-pulse"></span>
       </div>
 
-      <!-- Breve Bio -->
+      <!-- Bio Actualizada -->
       <p class="max-w-2xl text-base sm:text-lg text-gray-400 leading-relaxed font-normal">
-        Ingeniero en Informática de Valdivia, Chile. Especialista en desarrollo backend con
-        <span class="text-purple-300 font-medium">PHP (CodeIgniter)</span>, interfaces modernas en
-        <span class="text-indigo-300 font-medium">Angular</span>, gestión de bases de datos y arquitecturas empresariales.
+        Ingeniero en Informática de Valdivia, Chile. Construyo sistemas empresariales, plataformas de misión crítica y APIs robustas
+        combinando <span class="text-purple-300 font-semibold">PHP (CodeIgniter 4)</span> en backend y
+        <span class="text-indigo-300 font-semibold">Angular</span> en frontend.
       </p>
 
       <!-- Botones de Acción -->
@@ -78,11 +99,12 @@
         <a href="#projects" class="px-7 py-3.5 rounded-full font-semibold text-sm bg-brand-purple hover:bg-purple-500 text-white transition-all duration-300 hover:scale-105 shadow-glow-purple">
           Ver proyectos
         </a>
-        <a href="https://github.com/nlxntz" target="_blank" class="flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm border border-white/15 text-gray-300 hover:border-purple-500/50 hover:text-white hover:bg-purple-900/20 transition-all duration-300 hover:scale-105">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 0 1 3-.404c1.02.005 2.045.137 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.803 5.625-5.475 5.922.43.372.823 1.103.823 2.222 0 1.605-.015 2.897-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+        <a href="/cv/cv_nicolas_lintz.pdf" target="_blank" download="CV_Nicolas_Lintz.pdf"
+           class="flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm border border-white/15 text-gray-300 hover:border-purple-500/50 hover:text-white hover:bg-purple-900/20 transition-all duration-300 hover:scale-105">
+          <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
           </svg>
-          GitHub
+          Descargar CV
         </a>
         <a href="#contact" class="px-6 py-3.5 rounded-full font-semibold text-sm border border-purple-500/40 text-purple-300 hover:bg-purple-500/15 transition-all duration-300 hover:scale-105">
           Contacto
@@ -92,16 +114,16 @@
       <!-- Métricas destacadas -->
       <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/5 w-full max-w-lg">
         <div class="text-center">
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">6+</div>
-          <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Proyectos</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">Salud & TI</div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Sector Actual</div>
         </div>
         <div class="text-center border-x border-white/5">
           <div class="text-2xl sm:text-3xl font-extrabold text-white">Full Stack</div>
-          <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Enfoque</div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Especialidad</div>
         </div>
         <div class="text-center">
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">6</div>
-          <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Certificados</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">7+</div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Certificaciones</div>
         </div>
       </div>
 
@@ -110,6 +132,11 @@
         <a href="https://www.linkedin.com/in/nicolaslintzb" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-500/50 transition-all hover:scale-110">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 448 512">
             <path d="M100.28 448H7.4V148.9h92.88zm-46.44-344a53.79 53.79 0 1 1 53.78-53.78A53.78 53.78 0 0 1 53.84 104zm384.46 344h-92.68V302.4c0-34.7-12.42-58.4-43.5-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.8 13.3-2.8 21.1V448h-92.78s1.2-242.1 0-266.6h92.68v37.8c12.3-19 34.4-46 83.7-46 61.2 0 107.1 39.9 107.1 125.4z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/nlxntz" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-500/50 transition-all hover:scale-110">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 0 1 3-.404c1.02.005 2.045.137 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.803 5.625-5.475 5.922.43.372.823 1.103.823 2.222 0 1.605-.015 2.897-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
           </svg>
         </a>
         <a href="mailto:lintznicolas2@gmail.com" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-500/50 transition-all hover:scale-110">
@@ -143,19 +170,23 @@
           </h3>
 
           <div class="space-y-6">
-            <!-- Hospital Base -->
-            <div class="border-l-2 border-purple-500/40 pl-5 relative space-y-2">
-              <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-dark-900"></span>
+            <!-- Hospital Base (Cargo Actual Desarrollador) -->
+            <div class="border-l-2 border-purple-500 pl-5 relative space-y-2">
+              <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-dark-900 animate-pulse"></span>
               <div class="flex items-center justify-between text-xs">
-                <span class="font-mono text-purple-400">Feb – Mar 2026</span>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-purple-400 font-bold">2024 – Presente</span>
+                  <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono text-[10px] font-bold">ACTUAL</span>
+                </div>
                 <span class="text-gray-500">Valdivia, Chile</span>
               </div>
-              <h4 class="text-base font-semibold text-white">Técnico en Informática</h4>
-              <p class="text-xs text-gray-400 font-medium">Hospital Base de Valdivia</p>
+              <h4 class="text-base font-semibold text-white">Desarrollador de Software</h4>
+              <p class="text-xs text-purple-300 font-medium">Hospital Base de Valdivia</p>
               <ul class="text-xs text-gray-400 space-y-1.5 pt-1">
-                <li>• Soporte a usuarios, mantenimiento de hardware, software y redes (VLAN, switches).</li>
-                <li>• Gestión de tickets y requerimientos TI en entorno hospitalario de alta demanda.</li>
-                <li>• Control y actualización del inventario de activos computacionales críticos.</li>
+                <li>• Desarrollo y mantenimiento de módulos clínicos y herramientas de gestión hospitalaria.</li>
+                <li>• Creación e integración de APIs RESTful seguras para interoperabilidad de datos asistenciales.</li>
+                <li>• Modelado y optimización de bases de datos relacionales asegurando alta disponibilidad.</li>
+                <li>• Soporte a infraestructura crítica de software y optimización continua de flujos TI.</li>
               </ul>
             </div>
 
@@ -177,45 +208,70 @@
           </div>
         </div>
 
-        <!-- Certificaciones -->
+        <!-- Certificaciones descargables reales -->
         <div class="card-glow p-8 space-y-6">
-          <h3 class="text-lg font-bold text-white flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-brand-cyan"></span>
-            Certificaciones Profesionales
-          </h3>
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-cyan"></span>
+              Certificaciones Profesionales
+            </h3>
+            <span class="text-[11px] font-mono text-gray-500">Haz clic para ver PDF ↗</span>
+          </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/30 transition-all flex flex-col justify-between gap-3">
+            <a href="/certificates/certificado_arquitectura_cloud.pdf" target="_blank"
+               class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/40 hover:bg-purple-950/20 transition-all flex flex-col justify-between gap-2 group">
               <div>
-                <span class="text-xs font-mono text-purple-400">Cloud</span>
-                <h5 class="text-sm font-semibold text-white mt-1">Arquitectura Cloud</h5>
-                <p class="text-xs text-gray-500 mt-1">Diseño y despliegue de infraestructuras escalables.</p>
+                <span class="text-xs font-mono text-purple-400">Cloud Architecture</span>
+                <h5 class="text-sm font-semibold text-white mt-1 group-hover:text-purple-300 transition-colors">Arquitectura Cloud</h5>
+                <p class="text-xs text-gray-500 mt-1">Diseño de infraestructuras escalables en la nube.</p>
               </div>
-            </div>
+            </a>
 
-            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/30 transition-all flex flex-col justify-between gap-3">
+            <a href="/certificates/certificado_desarrollador_full_stack.pdf" target="_blank"
+               class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/40 hover:bg-purple-950/20 transition-all flex flex-col justify-between gap-2 group">
               <div>
-                <span class="text-xs font-mono text-indigo-400">Development</span>
-                <h5 class="text-sm font-semibold text-white mt-1">Desarrollador Full Stack</h5>
-                <p class="text-xs text-gray-500 mt-1">Arquitectura de aplicaciones web extremo a extremo.</p>
+                <span class="text-xs font-mono text-indigo-400">Engineering</span>
+                <h5 class="text-sm font-semibold text-white mt-1 group-hover:text-purple-300 transition-colors">Desarrollador Full Stack</h5>
+                <p class="text-xs text-gray-500 mt-1">Arquitectura de aplicaciones desacopladas.</p>
               </div>
-            </div>
+            </a>
 
-            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/30 transition-all flex flex-col justify-between gap-3">
+            <a href="/certificates/certificado_diseno_y_gestion_de_base_de_datos.pdf" target="_blank"
+               class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/40 hover:bg-purple-950/20 transition-all flex flex-col justify-between gap-2 group">
               <div>
-                <span class="text-xs font-mono text-cyan-400">Data</span>
-                <h5 class="text-sm font-semibold text-white mt-1">Diseño y Gestión de BD</h5>
-                <p class="text-xs text-gray-500 mt-1">Modelado relacional, optimización y consultas SQL.</p>
+                <span class="text-xs font-mono text-cyan-400">Database</span>
+                <h5 class="text-sm font-semibold text-white mt-1 group-hover:text-purple-300 transition-colors">Diseño y Gestión de BD</h5>
+                <p class="text-xs text-gray-500 mt-1">Modelado relacional y optimización SQL.</p>
               </div>
-            </div>
+            </a>
 
-            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/30 transition-all flex flex-col justify-between gap-3">
+            <a href="/certificates/certificado_diseno_agil_de_sistemas.pdf" target="_blank"
+               class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/40 hover:bg-purple-950/20 transition-all flex flex-col justify-between gap-2 group">
               <div>
-                <span class="text-xs font-mono text-purple-400">Agile</span>
-                <h5 class="text-sm font-semibold text-white mt-1">Diseño Ágil de Sistemas</h5>
+                <span class="text-xs font-mono text-purple-400">Agile Methods</span>
+                <h5 class="text-sm font-semibold text-white mt-1 group-hover:text-purple-300 transition-colors">Diseño Ágil de Sistemas</h5>
                 <p class="text-xs text-gray-500 mt-1">Metodologías iterativas y entrega continua.</p>
               </div>
-            </div>
+            </a>
+
+            <a href="/certificates/certificado_innovacion_y_emprendimiento.pdf" target="_blank"
+               class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/40 hover:bg-purple-950/20 transition-all flex flex-col justify-between gap-2 group">
+              <div>
+                <span class="text-xs font-mono text-amber-400">Innovation</span>
+                <h5 class="text-sm font-semibold text-white mt-1 group-hover:text-purple-300 transition-colors">Innovación & TI</h5>
+                <p class="text-xs text-gray-500 mt-1">Resolución de problemas con base tecnológica.</p>
+              </div>
+            </a>
+
+            <a href="/certificates/certificado_soporte_computacional.pdf" target="_blank"
+               class="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/40 hover:bg-purple-950/20 transition-all flex flex-col justify-between gap-2 group">
+              <div>
+                <span class="text-xs font-mono text-emerald-400">Infrastructure</span>
+                <h5 class="text-sm font-semibold text-white mt-1 group-hover:text-purple-300 transition-colors">Soporte Computacional</h5>
+                <p class="text-xs text-gray-500 mt-1">Redes, mantenimiento y hardware crítico.</p>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -256,9 +312,9 @@
             <span class="px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-xs text-indigo-300 font-medium">Angular (v18/19)</span>
             <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300">TypeScript</span>
             <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300">Tailwind CSS</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300">Signals & RxJS</span>
             <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300">JavaScript ES6+</span>
             <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300">HTML5 / CSS3</span>
-            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300">React</span>
           </div>
         </div>
 
@@ -279,20 +335,36 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- CATÁLOGO DE PROYECTOS -->
+  <!-- CATÁLOGO DE PROYECTOS CON BUSCADOR INTERACTIVO -->
   <!-- ========================================================================= -->
   <section id="projects" class="py-28 bg-dark-900/60 border-t border-white/5 relative">
     <div class="max-w-6xl mx-auto px-6">
       
-      <div class="text-center mb-12">
+      <div class="text-center mb-10">
         <span class="text-xs font-semibold uppercase tracking-widest text-purple-400 font-mono">Portafolio</span>
         <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Casos de Estudio & Proyectos</h2>
         <p class="text-sm text-gray-400 mt-2 max-w-xl mx-auto">
           Sistemas construidos con arquitectura robusta, rendimiento optimizado y código limpio.
         </p>
 
+        <!-- Barra de Búsqueda Interactiva en tiempo real -->
+        <div class="max-w-md mx-auto mt-6 relative">
+          <input
+            type="text"
+            [value]="searchQuery()"
+            (input)="onSearchChange($event)"
+            placeholder="Buscar por tecnología o palabra clave (ej: Angular, MySQL, Hospital)..."
+            class="w-full pl-11 pr-4 py-2.5 rounded-full bg-dark-950 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-purple-500 transition-colors shadow-inner">
+          <svg class="w-4 h-4 text-gray-500 absolute left-4 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          @if (searchQuery()) {
+            <button (click)="searchQuery.set('')" class="absolute right-4 top-2.5 text-xs text-gray-400 hover:text-white">✕</button>
+          }
+        </div>
+
         <!-- Filtros por categoría -->
-        <div class="flex flex-wrap justify-center gap-2 mt-8">
+        <div class="flex flex-wrap justify-center gap-2 mt-5">
           @for (cat of categories; track cat.id) {
             <button
               (click)="setCategory(cat.id)"
@@ -364,7 +436,7 @@
             </div>
           } @empty {
             <div class="col-span-full text-center py-16 text-gray-500">
-              No hay proyectos cargados en esta categoría.
+              No se encontraron proyectos con ese criterio de búsqueda.
             </div>
           }
         </div>
@@ -433,7 +505,7 @@
         </p>
       </div>
 
-      <!-- Alertas -->
+      <!-- Alertas en línea -->
       @if (submitSuccess()) {
         <div class="p-4 mb-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-2">
           <span>✓</span>
@@ -518,9 +590,10 @@
     <div class="flex justify-center gap-6">
       <a href="https://github.com/nlxntz" target="_blank" class="hover:text-purple-400 transition-colors">GitHub</a>
       <a href="https://www.linkedin.com/in/nicolaslintzb" target="_blank" class="hover:text-purple-400 transition-colors">LinkedIn</a>
+      <a href="/cv/cv_nicolas_lintz.pdf" target="_blank" class="hover:text-purple-400 transition-colors">Currículum PDF</a>
       <a routerLink="/admin/login" class="hover:text-purple-400 transition-colors">Panel Admin (CMS)</a>
     </div>
-    <p>© 2026 Nicolás Lintz. Construido con PHP 8 (CodeIgniter 4) & Angular.</p>
+    <p>© 2026 Nicolás Lintz — Desarrollador en Hospital Base de Valdivia. Construido con PHP 8 (CodeIgniter 4) & Angular.</p>
   </footer>
 
 </div>
