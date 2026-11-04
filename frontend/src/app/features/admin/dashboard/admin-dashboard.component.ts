@@ -143,7 +143,7 @@ import { DashboardService, DashboardStats } from '../../../core/services/dashboa
 
             <div class="space-y-3">
               @for (msg of messages(); track msg.id) {
-                <div class="card-glow p-5 flex flex-col sm:flex-row justify-between gap-4" [class.border-purple-500/40]="!msg.is_read">
+                <div class="card-glow p-5 flex flex-col sm:flex-row justify-between gap-4" [class.border-purple-500]="!msg.is_read">
                   <div class="space-y-1.5 flex-1">
                     <div class="flex items-center gap-3">
                       <span class="font-bold text-white text-sm">{{ msg.name }}</span>
