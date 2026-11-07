@@ -96,7 +96,13 @@ export class AdminLoginComponent {
       },
       error: (err) => {
         this.isLoading.set(false);
-        this.errorMessage.set(err.error?.message || 'Usuario o contraseña incorrectos.');
+        if (err.status === 0) {
+          this.errorMessage.set('Error de conexión con el backend (puerto 8080 no accesible o CORS).');
+        } else if (err.status === 401) {
+          this.errorMessage.set(err.error?.message || 'Usuario o contraseña incorrectos.');
+        } else {
+          this.errorMessage.set(err.error?.message || 'Error al procesar la solicitud.');
+        }
       }
     });
   }

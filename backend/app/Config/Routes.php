@@ -6,6 +6,15 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+// Manejo de peticiones preflight OPTIONS para CORS
+$routes->options('(:any)', function () {
+    return service('response')
+        ->setStatusCode(200)
+        ->setHeader('Access-Control-Allow-Origin', '*')
+        ->setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
+        ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+});
+
 // Ruta raíz informativa
 $routes->get('/', function () {
     return service('response')->setJSON([
@@ -19,6 +28,14 @@ $routes->get('/', function () {
 // GRUPO API
 // -------------------------------------------------------------
 $routes->group('api', function ($routes) {
+
+    $routes->options('(:any)', function () {
+        return service('response')
+            ->setStatusCode(200)
+            ->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    });
 
     // --- Rutas Públicas ---
     $routes->post('auth/login', 'Api\AuthController::login');
